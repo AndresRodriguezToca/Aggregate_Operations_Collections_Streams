@@ -8,13 +8,11 @@ package assignment2_aggregate_operations_collection_streams;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 
@@ -88,6 +86,7 @@ class mainBabyClassName implements Comparable<mainBabyClassName>// implements ..
     
     
     // others as per instructions
+    @Override
     public int compareTo(mainBabyClassName st){ 
         int compare = this.getName().compareTo(st.getName());
             if(compare == 0){
@@ -129,7 +128,7 @@ class MyDatabase// for storing names
                     }
                     Collections.sort(listBabies);
                     in.close();
-                } catch (Exception e) {
+                } catch (IOException e) {
                     System.out.println(e);
                 }
             }
@@ -164,7 +163,7 @@ class MyDatabase// for storing names
                         myWriter.write("\n");
                     }
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
             return null;
@@ -192,7 +191,7 @@ class MyDatabase// for storing names
                         myWriter.write("\n");
                     }
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
             
@@ -217,7 +216,7 @@ class MyDatabase// for storing names
                     System.out.println(name + " NOT found in database");
                     myWriter.write(name + " NOT found in database\n");
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
             return null;
@@ -242,7 +241,7 @@ class MyDatabase// for storing names
                     System.out.println(name + " NOT found in database");
                     myWriter.write(name + " NOT found in database\n");
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
             return null;
@@ -266,7 +265,7 @@ class MyDatabase// for storing names
                     System.out.println(name + " NOT found in database");
                     myWriter.write(name + " NOT found in database\n");
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
             
@@ -292,7 +291,7 @@ class MyDatabase// for storing names
                     System.out.println(name + " NOT found in database");
                     myWriter.write(name + " NOT found in database\n");
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
             return null;
@@ -386,7 +385,7 @@ class MyDatabase// for storing names
         public void closePrintWriter(){
             try {
                 myWriter.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
             
@@ -415,6 +414,7 @@ public class Assignment2_Aggregate_Operations_Collection_Streams {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException{
         // TODO code application logic here
